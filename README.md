@@ -14,6 +14,7 @@ A API inclui operações como:
 - **Banco de Dados H2** (embarcado, utilizado para simulação)
 - **Cache** para otimização de consultas.
 - **Design Patterns** aplicando **DDD (Domain-Driven Design)**.
+- **Controle de Rollback** utilizando @Transactional.
 - **Controle de Exceções** para respostas HTTP padronizadas.
 - **Swagger** para documentação da api e acionamento dos endpoints.
 
