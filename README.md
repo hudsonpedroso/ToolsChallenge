@@ -6,7 +6,7 @@ Este projeto é uma API RESTful desenvolvida como parte do **Tools Challenge**, 
 A API inclui operações como:
 - **Pagamento**: Processamento de transações.
 - **Estorno**: Cancelamento de transações já realizadas.
-- **Consulta**: Obtenção de transações por ID, listagem completa ou completa com paginação.
+- **Consulta**: Obtenção de transações por ID, listagem completa com ou sem paginação.
 
 ## 🛠 Tecnologias Utilizadas
 - **Java 21**
