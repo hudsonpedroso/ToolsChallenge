@@ -15,6 +15,7 @@ A API inclui operações como:
 - **Cache** para otimização de consultas.
 - **Design Patterns** aplicando **DDD (Domain-Driven Design)**.
 - **Controle de Exceções** para respostas HTTP padronizadas.
+- **Swagger** para documentação da api e acionamento dos endpoints.
 
 ## 📑 Requisitos das Transações
 - **ID da Transação**: Deve ser único.
@@ -28,162 +29,31 @@ A API inclui operações como:
 
 ## 📬 Endpoints da API
 
-### Realizar Pagamento
-- **POST /api/pagamentos**
-  - **Descrição**: Realiza o processamento de um pagamento.
-  - **Request**:
-    ```json
-    {
-      "transacao": {
-        "id": 1,
-        "cartao": "4444********1234",
-        "descricao": {
-          "valor": 150.75,
-          "dataHora": "22/11/2024 14:30:00",
-          "estabelecimento": "Loja XYZ"
-        }
-      },
-      "formaPagamento": {
-        "tipo": "AVISTA",
-        "parcelas": 1
-      }
-    }
-    ```
-  - **Response**:
-    ```json
-    {
-      "transacao": {
-        "id": 1,
-        "cartao": "4444********1234",
-        "descricao": {
-          "valor": 150.75,
-          "dataHora": "22/11/2024 14:30:00",
-          "estabelecimento": "Loja XYZ",
-          "status": "AUTORIZADO"
-        }
-      },
-      "formaPagamento": {
-        "tipo": "AVISTA",
-        "parcelas": 1
-      }
-    }
-    ```
-  - **Status HTTP**: `201 Created`
-
-### Realizar Estorno
-- **POST /api/pagamentos/{id}/estorno**
-  - **Descrição**: Realiza o estorno de uma transação existente.
-  - **Response**:
-    ```json
-    {
-      "transacao": {
-        "id": 1,
-        "cartao": "4444********1234",
-        "descricao": {
-          "valor": 150.75,
-          "dataHora": "22/11/2024 14:30:00",
-          "estabelecimento": "Loja XYZ",
-          "status": "ESTORNADO"
-        }
-      },
-      "formaPagamento": {
-        "tipo": "AVISTA",
-        "parcelas": 1
-      }
-    }
-    ```
-  - **Status HTTP**: `200 OK`
-
-### Consultar Transação por ID
-- **GET /api/pagamentos/{id}**
-  - **Descrição**: Retorna os detalhes de uma transação específica.
-  - **Response**:
-    ```json
-    {
-      "transacao": {
-        "id": 1,
-        "cartao": "4444********1234",
-        "descricao": {
-          "valor": 150.75,
-          "dataHora": "22/11/2024 14:30:00",
-          "estabelecimento": "Loja XYZ",
-          "status": "AUTORIZADO"
-        }
-      },
-      "formaPagamento": {
-        "tipo": "AVISTA",
-        "parcelas": 1
-      }
-    }
-    ```
-  - **Status HTTP**: `200 OK`
-
-### Consultar Todas as Transações
-- **GET /api/pagamentos/transacoes**
-  - **Descrição**: Retorna todas as transações cadastradas.
-  - **Response**:
-    ```json
-    [
-      {
-        "transacao": {
-          "id": 1,
-          "cartao": "4444********1234",
-          "descricao": {
-            "valor": 150.75,
-            "dataHora": "22/11/2024 14:30:00",
-            "estabelecimento": "Loja XYZ",
-            "status": "AUTORIZADO"
-          }
-        },
-        "formaPagamento": {
-          "tipo": "AVISTA",
-          "parcelas": 1
-        }
-      }
-    ]
-    ```
-  - **Status HTTP**: `200 OK`
-
-### Consultar Transações com Paginação
-- **GET /api/pagamentos/transacoes/{pages}/inicio/{start}**
-  - **Descrição**: Retorna as transações com suporte a paginação.
-  - **Response**:
-    ```json
-    {
-      "content": [
-        {
-          "transacao": {
-            "id": 1,
-            "cartao": "4444********1234",
-            "descricao": {
-              "valor": 150.75,
-              "dataHora": "22/11/2024 14:30:00",
-              "estabelecimento": "Loja XYZ",
-              "status": "AUTORIZADO"
-            }
-          },
-          "formaPagamento": {
-            "tipo": "AVISTA",
-            "parcelas": 1
-          }
-        }
-      ],
-      "pageable": {
-        "pageNumber": 0,
-        "pageSize": 10
-      },
-      "totalPages": 1
-    }
-    ```
-  - **Status HTTP**: `200 OK`
-
+### Acesse via Swager UI conforme será instruido no console:
+   ![image](https://github.com/user-attachments/assets/91047de2-fdf0-46d8-abee-24418af072c3)
 
 ## 🚀 Como Rodar o Projeto
 1. **Pré-requisitos**:
    - JDK 21 ou superior.
    - Maven 3.8+ instalado.
+   - Estar com a porta 8080 liberada para acesso local.
 
 2. **Clone o Repositório**:
    ```bash
    git clone https://github.com/hudsonpedroso/ToolsChallenge.git
    cd ToolsChallenge
+   ```
+
+ 3. **Compilar o projeto**:
+     ```bash
+      mvn clean install
+     ```
+     
+ 4. **Executar o projeto**
+     ```bash
+      mvn spring-boot:run
+     ```
+
+
+
+
