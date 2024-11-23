@@ -24,6 +24,7 @@ A API inclui operações como:
 - **Status da Transação**: Pode assumir os valores:
   - `AUTORIZADO`
   - `NEGADO`
+  - `CANCELADO`
 - **Forma de Pagamento**:
   - `AVISTA`
   - `PARCELADO LOJA`
