@@ -26,6 +26,158 @@ A API inclui operações como:
   - `PARCELADO LOJA`
   - `PARCELADO EMISSOR`
 
+## 📬 Endpoints da API
+
+### Realizar Pagamento
+- **POST /api/pagamentos**
+  - **Descrição**: Realiza o processamento de um pagamento.
+  - **Request**:
+    ```json
+    {
+      "transacao": {
+        "id": 1,
+        "cartao": "4444********1234",
+        "descricao": {
+          "valor": 150.75,
+          "dataHora": "22/11/2024 14:30:00",
+          "estabelecimento": "Loja XYZ"
+        }
+      },
+      "formaPagamento": {
+        "tipo": "AVISTA",
+        "parcelas": 1
+      }
+    }
+    ```
+  - **Response**:
+    ```json
+    {
+      "transacao": {
+        "id": 1,
+        "cartao": "4444********1234",
+        "descricao": {
+          "valor": 150.75,
+          "dataHora": "22/11/2024 14:30:00",
+          "estabelecimento": "Loja XYZ",
+          "status": "AUTORIZADO"
+        }
+      },
+      "formaPagamento": {
+        "tipo": "AVISTA",
+        "parcelas": 1
+      }
+    }
+    ```
+  - **Status HTTP**: `201 Created`
+
+### Realizar Estorno
+- **POST /api/pagamentos/{id}/estorno**
+  - **Descrição**: Realiza o estorno de uma transação existente.
+  - **Response**:
+    ```json
+    {
+      "transacao": {
+        "id": 1,
+        "cartao": "4444********1234",
+        "descricao": {
+          "valor": 150.75,
+          "dataHora": "22/11/2024 14:30:00",
+          "estabelecimento": "Loja XYZ",
+          "status": "ESTORNADO"
+        }
+      },
+      "formaPagamento": {
+        "tipo": "AVISTA",
+        "parcelas": 1
+      }
+    }
+    ```
+  - **Status HTTP**: `200 OK`
+
+### Consultar Transação por ID
+- **GET /api/pagamentos/{id}**
+  - **Descrição**: Retorna os detalhes de uma transação específica.
+  - **Response**:
+    ```json
+    {
+      "transacao": {
+        "id": 1,
+        "cartao": "4444********1234",
+        "descricao": {
+          "valor": 150.75,
+          "dataHora": "22/11/2024 14:30:00",
+          "estabelecimento": "Loja XYZ",
+          "status": "AUTORIZADO"
+        }
+      },
+      "formaPagamento": {
+        "tipo": "AVISTA",
+        "parcelas": 1
+      }
+    }
+    ```
+  - **Status HTTP**: `200 OK`
+
+### Consultar Todas as Transações
+- **GET /api/pagamentos/transacoes**
+  - **Descrição**: Retorna todas as transações cadastradas.
+  - **Response**:
+    ```json
+    [
+      {
+        "transacao": {
+          "id": 1,
+          "cartao": "4444********1234",
+          "descricao": {
+            "valor": 150.75,
+            "dataHora": "22/11/2024 14:30:00",
+            "estabelecimento": "Loja XYZ",
+            "status": "AUTORIZADO"
+          }
+        },
+        "formaPagamento": {
+          "tipo": "AVISTA",
+          "parcelas": 1
+        }
+      }
+    ]
+    ```
+  - **Status HTTP**: `200 OK`
+
+### Consultar Transações com Paginação
+- **GET /api/pagamentos/transacoes/{pages}/inicio/{start}**
+  - **Descrição**: Retorna as transações com suporte a paginação.
+  - **Response**:
+    ```json
+    {
+      "content": [
+        {
+          "transacao": {
+            "id": 1,
+            "cartao": "4444********1234",
+            "descricao": {
+              "valor": 150.75,
+              "dataHora": "22/11/2024 14:30:00",
+              "estabelecimento": "Loja XYZ",
+              "status": "AUTORIZADO"
+            }
+          },
+          "formaPagamento": {
+            "tipo": "AVISTA",
+            "parcelas": 1
+          }
+        }
+      ],
+      "pageable": {
+        "pageNumber": 0,
+        "pageSize": 10
+      },
+      "totalPages": 1
+    }
+    ```
+  - **Status HTTP**: `200 OK`
+
+
 ## 🚀 Como Rodar o Projeto
 1. **Pré-requisitos**:
    - JDK 21 ou superior.
