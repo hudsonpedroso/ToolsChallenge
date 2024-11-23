@@ -33,7 +33,10 @@ A API inclui operações como:
 ## 📬 Endpoints da API
 
 ### Acesse via Swager UI conforme será instruido no console:
-   ![image](https://github.com/user-attachments/assets/91047de2-fdf0-46d8-abee-24418af072c3)
+  - ![image](https://github.com/user-attachments/assets/91047de2-fdf0-46d8-abee-24418af072c3)
+
+### Ou via Postman, importando o arquivo *api-pagamentos.postman_collection* presente no diretório:
+  - `\api-pagamentos\src\main\resources\postman\api-pagamentos.postman_collection`
 
 ## 🚀 Como Rodar o Projeto
 1. **Pré-requisitos**:
