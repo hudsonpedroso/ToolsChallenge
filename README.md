@@ -19,6 +19,7 @@ A API inclui operações como:
 
 ## 📑 Requisitos das Transações
 - **ID da Transação**: Deve ser único.
+- **Para simular pagamento negado, usar o cartão:** `1111********1111`.
 - **Status da Transação**: Pode assumir os valores:
   - `AUTORIZADO`
   - `NEGADO`
