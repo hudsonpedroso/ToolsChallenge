@@ -23,7 +23,7 @@ A API inclui operações como:
 - **Para simular pagamento NEGADO, usar o cartão:**
   - `1111********1111`
 - **Para simular pagamento AUTORIZADO, usar qualquer outro cartão, exemplo:**
-- `4444********1234`
+  - `4444********1234`
 - **Status da Transação**: Pode assumir os valores:
   - `AUTORIZADO`
   - `NEGADO`
