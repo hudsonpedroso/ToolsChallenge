@@ -33,9 +33,15 @@ A API inclui operações como:
   - `PARCELADO LOJA`
   - `PARCELADO EMISSOR`
 
+## 💾 Banco de dados
+- **Diagrama Entidade-Relacionamento**: dbpagamentos:
+  
+  - ![image](https://github.com/user-attachments/assets/dd3d609c-7e1a-4087-b210-2b7d475b9fa6)
+
 ## 📬 Endpoints da API
 
 - **Opção 1: Acesse via Swager UI conforme será instruido no console:**
+  
   - ![image](https://github.com/user-attachments/assets/91047de2-fdf0-46d8-abee-24418af072c3)
 
 - **Opção 2: Acesse via Postman, importando o arquivo *api-pagamentos.postman_collection* presente no diretório:**
