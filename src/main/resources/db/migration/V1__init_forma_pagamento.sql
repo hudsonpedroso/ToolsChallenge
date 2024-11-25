@@ -1,0 +1,8 @@
+CREATE TABLE FORMA_PAGAMENTO (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    tipo VARCHAR(255) NOT NULL
+);
+
+INSERT INTO forma_pagamento (id, tipo) VALUES (1, 'AVISTA');
+INSERT INTO forma_pagamento (id, tipo) VALUES (2, 'PARCELADO LOJA');
+INSERT INTO forma_pagamento (id, tipo) VALUES (3, 'PARCELADO EMISSOR');

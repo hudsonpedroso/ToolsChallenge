@@ -1,0 +1,227 @@
+openapi: 3.0.1
+info:
+  title: API de Pagamentos
+  description: Documentação da API de Pagamentos do Tools Challenge.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080/api
+paths:
+  /pagamentos:
+    post:
+      summary: Realizar pagamento
+      description: Endpoint para processar um pagamento.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PagamentoRequest'
+      responses:
+        '201':
+          description: Pagamento realizado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PagamentoResponse'
+        '400':
+          description: "Bad request"
+        '412':
+          description: "Dados inválidos"
+        '500':
+          description: "HTTP Status: 500 Internal server error"
+  /pagamentos/{id}:
+    get:
+      summary: Consultar transação por ID
+      description: Endpoint para consultar uma transação específica utilizando o ID.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID da transação a ser consultada
+          schema:
+            type: integer
+          example: 10002365890001
+      responses:
+        '200':
+          description: "Transação encontrada com sucesso"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PagamentoResponse'
+        '404':
+          description: "Transação não encontrada"
+        '400':
+          description: "Parâmetros inválidos"
+        '500':
+          description: "HTTP Status: 500 Internal server error"
+  /pagamentos/{id}/estorno:
+    put:
+      summary: Realizar estorno
+      description: Endpoint para processar o estorno de um pagamento.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 10002365890001
+      responses:
+        '200':
+          description: Estorno realizado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PagamentoResponse'
+        '400':
+          description: "Bad request"
+        '412':
+          description: "Dados inválidos"
+        '500':
+          description: "HTTP Status: 500 Internal server error"
+  /pagamentos/transacoes:
+    get:
+      summary: "Consultar todas as transações"
+      description: "Este endpoint retorna uma lista de todas as transações pagas."
+      responses:
+        '200':
+          description: "Transações encontradas"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PagamentoResponse'
+        '404':
+          description: "Nenhuma transação encontrada"
+  /pagamentos/transacoes/{pages}/inicio/{start}:
+    get:
+      summary: "Consultar transações com paginação"
+      description: "Este endpoint retorna as transações paginadas conforme a página e o tamanho definidos."
+      parameters:
+        - name: "pages"
+          in: "path"
+          description: "Número de elementos por página"
+          required: true
+          schema:
+            type: integer
+          example: 2
+        - name: "start"
+          in: "path"
+          description: "Número da página inicial (inicia de 0)"
+          required: true
+          schema:
+            type: integer
+          example: 0
+      responses:
+        '200':
+          description: "Transações encontradas com sucesso"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PagePagamentoResponse'
+        '400':
+          description: "Parâmetros inválidos"
+components:
+  schemas:
+    PagamentoRequest:
+      type: object
+      properties:
+        transacao:
+          $ref: '#/components/schemas/TransacaoRequest'
+        formaPagamento:
+          $ref: '#/components/schemas/FormaPagamento'
+    TransacaoRequest:
+      type: object
+      properties:
+        cartao:
+          type: string
+          example: "1111********1111 (para simular pagamento com cartao negado) ou altere os numeros para simular valor valido, exemplo: 4444********1234"
+        id:
+          type: integer
+          example: 10002365890001
+        descricao:
+          $ref: '#/components/schemas/DescricaoRequest'
+    TransacaoResponse:
+      type: object
+      properties:
+        cartao:
+          type: string
+          example: "4444********1234"
+        id:
+          type: integer
+          example: 10002365890001
+        descricao:
+          $ref: '#/components/schemas/DescricaoResponse'
+    DescricaoRequest:
+      type: object
+      properties:
+        valor:
+          type: number
+          format: double
+          example: 100.00
+        dataHora:
+          type: string
+          example: "22/11/2024 14:30:00"
+        estabelecimento:
+          type: string
+          example: "Banco CredFacil"
+    DescricaoResponse:
+      type: object
+      properties:
+        valor:
+          type: number
+          format: double
+          example: 100.00
+        dataHora:
+          type: string
+          example: "22/11/2024 14:30:00"
+        estabelecimento:
+          type: string
+          example: "Banco CredFacil"
+        nsu:
+          type: string
+          example: "1234567890"
+        codigoAutorizacao:
+          type: string
+          example: "A12345"
+        status:
+          type: string
+          description: "Status da transação"
+          enum:
+            - AUTORIZADO
+            - NEGADO
+            - PENDENTE
+          example: "AUTORIZADO"
+    FormaPagamento:
+      type: object
+      properties:
+        tipo:
+          type: string
+          enum:
+            - AVISTA
+            - PARCELADO LOJA
+            - PARCELADO EMISSOR
+          description: 'AVISTA, PARCELADO LOJA ou PARCELADO EMISSOR'
+        parcelas:
+          type: integer
+          example: 1
+          minimum: 1
+          maximum: 24
+    PagamentoResponse:
+      type: object
+      properties:
+        transacao:
+          $ref: '#/components/schemas/TransacaoResponse'
+        formaPagamento:
+          $ref: '#/components/schemas/FormaPagamento'
+    PagePagamentoResponse:
+      type: object
+      properties:
+        page:
+          type: integer
+        totalPages:
+          type: integer
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/PagamentoResponse'
