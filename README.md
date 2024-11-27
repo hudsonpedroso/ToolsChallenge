@@ -54,5 +54,28 @@ A API inclui operações como:
    - JDK 21 ou superior.
    - Maven 3.8+ instalado.
    - Estar com a porta 8080 liberada para acesso local.
+   
+2. **Clone o Repositório**:
+   
+```bash
+   git clone https://github.com/hudsonpedroso/ToolsChallenge.git
+   cd ToolsChallenge
+```
 
+3. **Compilar o projeto**:
+    
+```bash
+    mvn clean install
+```
+     
+4. **Executar o projeto**
+-  Executar via Runner no IntelliJ ou via console:
+```bash
+      mvn spring-boot:run
+```
+ 5. **Rodar os testes**
+  -  Executar via Run Tests no IntelliJ ou via console:
+```bash
+  mvn test
+```
 
