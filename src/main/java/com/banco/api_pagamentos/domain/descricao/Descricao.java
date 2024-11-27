@@ -70,7 +70,7 @@ public class Descricao implements Serializable {
 
         this.status = status;
 
-        if(status.isAutorizado()) {
+        if(!status.isNegado()) {
             this.codigoAutorizacao = CODIGO_AUTORIZACAO;
             this.nsu = NSU;
         }

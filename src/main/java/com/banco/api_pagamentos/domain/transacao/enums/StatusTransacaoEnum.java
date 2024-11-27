@@ -9,4 +9,7 @@ public enum StatusTransacaoEnum {
     public boolean isAutorizado() {
         return AUTORIZADO.equals(this);
     }
+    public boolean isNegado() {
+        return NEGADO.equals(this);
+    }
 }
