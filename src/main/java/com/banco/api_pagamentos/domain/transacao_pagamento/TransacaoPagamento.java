@@ -5,6 +5,7 @@ import com.banco.api_pagamentos.domain.transacao.Transacao;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -12,6 +13,7 @@ import java.io.Serializable;
 @Entity
 @Getter
 @AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "TransacaoPagamento")
 public class TransacaoPagamento implements Serializable {
 

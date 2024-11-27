@@ -4,10 +4,7 @@ import com.banco.api_pagamentos.domain.descricao.dto.DescricaoRequest;
 import com.banco.api_pagamentos.domain.transacao.enums.StatusTransacaoEnum;
 import com.banco.api_pagamentos.exceptions.ValidationException;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -22,6 +19,7 @@ import static com.banco.api_pagamentos.domain.descricao.DescricaoConstants.NSU;
 @Entity
 @Getter
 @AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "descricao")
 @EqualsAndHashCode(of = "id")
 public class Descricao implements Serializable {
