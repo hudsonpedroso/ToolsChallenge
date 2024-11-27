@@ -35,7 +35,7 @@ A API inclui operações como:
   - `PARCELADO EMISSOR`
 
 ## 💾 Banco de dados
-- **Diagrama Entidade-Relacionamento**: dbpagamentos:
+- **Diagrama Entidade-Relacionamento** dbpagamentos:
   
   - ![image](https://github.com/user-attachments/assets/dd3d609c-7e1a-4087-b210-2b7d475b9fa6)
 
