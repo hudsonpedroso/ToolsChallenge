@@ -54,7 +54,7 @@ A API inclui operações como:
 1. **Pré-requisitos**:
    - JDK 21 ou superior.
    - Maven 3.8+ instalado.
-   - Estar com a porta 8080 liberada para acesso local.
+   - Porta 8080 liberada para acesso local.
    
 2. **Clone o Repositório**:
    
