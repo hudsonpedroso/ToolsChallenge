@@ -5,22 +5,18 @@ import com.banco.api_pagamentos.domain.transacao.Transacao;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.io.Serial;
 import java.io.Serializable;
 
 @Entity
 @Getter
-@Setter
-@NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "TransacaoPagamento")
 public class TransacaoPagamento implements Serializable {
 
     @Serial
-    private static final long serialVersionUID = 123L; //sonar
+    private static final long serialVersionUID = 123L; 
 
     @EmbeddedId
     private TransacaoPagamentoId id;

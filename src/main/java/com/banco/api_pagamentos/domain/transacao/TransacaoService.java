@@ -17,12 +17,12 @@ import static com.banco.api_pagamentos.domain.transacao.enums.StatusTransacaoEnu
 @AllArgsConstructor
 public class TransacaoService {
 
-    private static final String CARTAO_NEGADO = "1111********1111";
+    private static final String CARTAO_NEGADO = "1111********1111"; // cartao para simular pagamento negado
 
     private final TransacaoRepository transacaoRepository;
 
     public Transacao realizarPagamento(Transacao transacao) {
-        transacao.getDescricao().setStatus(definirStatus(transacao));
+        transacao.getDescricao().atualizarStatus(definirStatus(transacao));
         return transacaoRepository.save(transacao);
     }
 

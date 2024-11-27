@@ -4,7 +4,10 @@ import com.banco.api_pagamentos.domain.descricao.dto.DescricaoRequest;
 import com.banco.api_pagamentos.domain.transacao.enums.StatusTransacaoEnum;
 import com.banco.api_pagamentos.exceptions.ValidationException;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -18,15 +21,13 @@ import static com.banco.api_pagamentos.domain.descricao.DescricaoConstants.NSU;
 
 @Entity
 @Getter
-@Builder
-@NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "descricao")
 @EqualsAndHashCode(of = "id")
 public class Descricao implements Serializable {
 
     @Serial
-    private static final long serialVersionUID = 126L; //sonar
+    private static final long serialVersionUID = 126L; 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,6 +35,7 @@ public class Descricao implements Serializable {
 
     private BigDecimal valor;
 
+    @Setter
     @Column(name = "data_hora")
     private LocalDateTime dataHora;
 
@@ -53,8 +55,25 @@ public class Descricao implements Serializable {
         this.valor = request.valor();
         this.dataHora = obterDataHora(request.dataHora());
         this.estabelecimento = request.estabelecimento();
-        this.codigoAutorizacao = CODIGO_AUTORIZACAO;
-        this.nsu = NSU;
+    }
+
+    public Descricao(Long id, BigDecimal valor, LocalDateTime dataHora,
+                        String estabelecimento, StatusTransacaoEnum status) {
+        this.id = id;
+        this.valor = valor;
+        this.dataHora = dataHora;
+        this.estabelecimento = estabelecimento;
+        this.status = status;
+    }
+
+    public void atualizarStatus(StatusTransacaoEnum status) {
+
+        this.status = status;
+
+        if(status.isAutorizado()) {
+            this.codigoAutorizacao = CODIGO_AUTORIZACAO;
+            this.nsu = NSU;
+        }
     }
 
     private static LocalDateTime obterDataHora(String dataHora) {

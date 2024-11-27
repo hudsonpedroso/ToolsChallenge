@@ -21,8 +21,7 @@ public class PagamentosController {
     private final PagamentoService pagamentoService;
 
     @PostMapping
-    public ResponseEntity<PagamentoResponse> realizarPagamento(
-            @RequestBody @Valid PagamentoRequest request) {
+    public ResponseEntity<PagamentoResponse> realizarPagamento(@RequestBody @Valid PagamentoRequest request) {
         var response = pagamentoService.realizarPagamento(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }

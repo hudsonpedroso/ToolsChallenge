@@ -7,7 +7,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -16,13 +15,12 @@ import java.util.List;
 @Entity
 @Getter
 @AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "transacao")
 @EqualsAndHashCode(of = "id")
 public class Transacao implements Serializable {
 
     @Serial
-    private static final long serialVersionUID = 124L; //sonar
+    private static final long serialVersionUID = 124L; 
 
     @Column(nullable = false)
     private String cartao;
