@@ -17,6 +17,7 @@ A API inclui operações como:
 - **Controle de Rollback** utilizando @Transactional.
 - **Controle de Exceções** para respostas HTTP padronizadas.
 - **Swagger** para documentação da api e acionamento dos endpoints.
+- **IDE** IntelliJ IDEA Community Edition 2024.2.4.
 
 ## 📑 Requisitos das Transações
 - **ID da Transação**: Deve ser único.
@@ -34,7 +35,7 @@ A API inclui operações como:
   - `PARCELADO EMISSOR`
 
 ## 💾 Banco de dados
-- **Diagrama Entidade-Relacionamento**: dbpagamentos:
+- **Diagrama Entidade-Relacionamento** dbpagamentos:
   
   - ![image](https://github.com/user-attachments/assets/dd3d609c-7e1a-4087-b210-2b7d475b9fa6)
 
@@ -48,27 +49,33 @@ A API inclui operações como:
   - `\api-pagamentos\src\main\resources\postman\api-pagamentos.postman_collection`
 
 ## 🚀 Como Rodar o Projeto
+
 1. **Pré-requisitos**:
    - JDK 21 ou superior.
    - Maven 3.8+ instalado.
    - Estar com a porta 8080 liberada para acesso local.
-
+   
 2. **Clone o Repositório**:
-   ```bash
+   
+```bash
    git clone https://github.com/hudsonpedroso/ToolsChallenge.git
    cd ToolsChallenge
-   ```
+```
 
- 3. **Compilar o projeto**:
-     ```bash
-      mvn clean install
-     ```
+3. **Compilar o projeto**:
+    
+```bash
+    mvn clean install
+```
      
- 4. **Executar o projeto**
-     ```bash
+4. **Executar o projeto**
+-  Executar via Runner no IntelliJ ou via console:
+```bash
       mvn spring-boot:run
-     ```
-
-
-
+```
+ 5. **Rodar os testes**
+  -  Executar via Run Tests no IntelliJ ou via console:
+```bash
+  mvn test
+```
 
