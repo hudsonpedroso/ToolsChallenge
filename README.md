@@ -43,7 +43,8 @@ A API inclui operações como:
 
 - **Opção 1: Acesse via Swager UI conforme será instruido no console:**
   
-  - ![image](https://github.com/user-attachments/assets/91047de2-fdf0-46d8-abee-24418af072c3)
+  - ![image](https://github.com/user-attachments/assets/9561a92e-f6e6-4993-9d3d-340cd23b05a1)
+
 
 - **Opção 2: Acesse via Postman, importando o arquivo *api-pagamentos.postman_collection* presente no diretório:**
   - `\api-pagamentos\src\main\resources\postman\api-pagamentos.postman_collection`
