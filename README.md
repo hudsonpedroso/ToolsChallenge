@@ -66,17 +66,17 @@ A API inclui operações como:
 3. **Compilar o projeto**:
     
 ```bash
-    mvn clean install
+   mvn clean install
 ```
      
 4. **Executar o projeto**
 -  Executar via Runner no IntelliJ ou via console:
 ```bash
-      mvn spring-boot:run
+   mvn spring-boot:run
 ```
  5. **Rodar os testes**
   -  Executar via Run Tests no IntelliJ ou via console:
 ```bash
-  mvn test
+   mvn test
 ```
 
