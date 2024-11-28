@@ -11,6 +11,7 @@ A API inclui operações como:
 ## 🛠 Tecnologias Utilizadas
 - **Java 21**
 - **Spring Boot**
+- **Flyway**
 - **Banco de Dados H2** (embarcado, utilizado para simulação)
 - **Cache** para otimização de consultas.
 - **Design Patterns** aplicando **DDD (Domain-Driven Design)**.
